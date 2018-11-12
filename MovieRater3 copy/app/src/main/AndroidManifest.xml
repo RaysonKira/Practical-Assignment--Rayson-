@@ -16,6 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name=".rateMovie"></activity>
+        <activity android:name=".viewMovie"></activity>
     </application>
 
 </manifest>
