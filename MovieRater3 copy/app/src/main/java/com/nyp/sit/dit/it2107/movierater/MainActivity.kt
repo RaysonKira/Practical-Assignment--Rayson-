@@ -34,6 +34,8 @@ class MainActivity : AppCompatActivity() {
         var inputName = editTextName.text
         var inputDesc = editTextDesc.text
         var releasedDate = editTextDate.text
+
+        // Radio Button
         if (radioButtonChinese.isChecked)
         {
             radioButtonInput = "Chinese"
@@ -94,4 +96,6 @@ class MainActivity : AppCompatActivity() {
         //Print out details
 //        textView.setText(radioButtonInput + inputName + inputDesc + releasedDate)
     }
+
+
 }
