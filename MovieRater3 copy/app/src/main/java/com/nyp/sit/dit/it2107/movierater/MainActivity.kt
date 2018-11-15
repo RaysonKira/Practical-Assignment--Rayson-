@@ -6,10 +6,9 @@ import android.view.View
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import com.nyp.sit.dit.it2107.movierater.Movie
+import android.content.Intent
 
 class MainActivity : AppCompatActivity() {
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -50,9 +49,13 @@ class MainActivity : AppCompatActivity() {
         {
             radioButtonInput = "Malay"
         }
-        else
+        else if (radioButtonTamil.isChecked)
         {
             radioButtonInput = "Tamil"
+        }
+        else
+        {
+            textView8.setError("Please check a Radio Button!")
         }
 
         // CheckBox
@@ -66,15 +69,19 @@ class MainActivity : AppCompatActivity() {
         }
 
         var violence = ""
-        if (checkBoxViolence.isChecked)
-        {
-            violence = "Violence"
-        }
-
         var language = ""
-        if (checkBoxLanguage.isChecked)
+        if (checkBoxViolence.isChecked || checkBoxLanguage.isChecked)
         {
-            language = "Language"
+            if (checkBoxViolence.isChecked) {
+                violence = "Violence"
+            }
+            if (checkBoxLanguage.isChecked) {
+                language = "Language"
+            }
+        }
+        else
+        {
+            textView9.setError("Please Check A CheckBox!")
         }
         //Validate
         if (editTextName.text.toString() == "")
@@ -95,9 +102,20 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, message, Toast.LENGTH_LONG).show()
         }
 
+        movieObject.inputName= inputName.toString()
+        movieObject.releasedDate = releasedDate.toString()
+        movieObject.inputDesc = inputDesc.toString()
+        movieObject.checkedOrNt = checkedOrNt
+        movieObject.radioButtonInput = radioButtonInput
+        movieObject.violence = violence
+        movieObject.language = language
         //Print out details
 //        textView.setText(radioButtonInput + inputName + inputDesc + releasedDate)
     }
 
-
+    fun buttonView(v:View)
+    {
+        var intentView = Intent(this, viewMovie::class.java)
+        startActivity(intentView)
+    }
 }
