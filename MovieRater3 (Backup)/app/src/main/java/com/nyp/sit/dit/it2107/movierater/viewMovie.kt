@@ -13,11 +13,26 @@ class viewMovie: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.view_movie)
 
+        var suitable = ""
+
         titleTextView.text = movieObject.inputName
         overviewTextView.text = movieObject.inputDesc
         languageTextView.text = movieObject.radioButtonInput
         dateTextView.text = movieObject.releasedDate
-        var checked =  movieObject.violence + "\n" + movieObject.language
-        m18TextView.text = checked
+        if (movieObject.violence != "" || movieObject.language != "")
+        {
+            suitable = "No"
+        }
+        else
+        {
+            suitable = "Yes"
+        }
+        m18TextView.text = suitable
+
+        //Check if there is any review
+        if (movieObject.review == -1)
+        {
+            reviewTextView.text = "No Review Yet." + "\n" + "Long press here too add your review"
+        }
     }
 }

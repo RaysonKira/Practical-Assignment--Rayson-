@@ -27,7 +27,6 @@ class noMovie: AppCompatActivity() {
     }
 
     override fun onContextItemSelected(item: MenuItem?): Boolean {
-
         if (item?.itemId == 1001){
             var intentView = Intent(this, MainActivity::class.java)
             startActivity(intentView)

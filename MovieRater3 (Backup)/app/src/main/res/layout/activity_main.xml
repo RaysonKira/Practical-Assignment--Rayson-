@@ -168,22 +168,5 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:id="@+id/textView9" android:layout_weight="1"/>
     </RadioGroup>
-    <Button
-            android:id="@+id/buttonAdd"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Add movie"
-            android:layout_below="@id/radioGroupCheck"
-            android:onClick="buttonAdd"
-    />
-
-    <Button
-            android:id="@+id/buttonView"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="View movie"
-            android:layout_below="@id/buttonAdd"
-            android:onClick="buttonView"
-    />
 
 </RelativeLayout>
