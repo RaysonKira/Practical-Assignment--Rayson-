@@ -9,6 +9,10 @@ import com.nyp.sit.dit.it2107.movierater.Movie
 import android.content.Intent
 import android.view.Menu
 import android.view.MenuItem
+import android.view.ViewGroup
+import android.widget.EditText
+
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,6 +29,8 @@ class MainActivity : AppCompatActivity() {
                 checkBoxViolence.visibility = View.INVISIBLE
             }
         })
+
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -116,6 +122,19 @@ class MainActivity : AppCompatActivity() {
             movieObject.radioButtonInput = radioButtonInput
             movieObject.violence = violence
             movieObject.language = language
+        }
+        if (item?.itemId == R.id.miClear)
+        {
+            editTextName.setText("")
+            editTextDate.setText("")
+            editTextDesc.setText("")
+            checkBoxM18.isChecked = false
+            checkBoxLanguage.isChecked = false
+            checkBoxViolence.isChecked = false
+            radioButtonChinese.isChecked = false
+            radioButtonEng.isChecked = false
+            radioButtonMalay.isChecked = false
+            radioButtonTamil.isChecked = false
         }
         return super.onOptionsItemSelected(item)
     }
