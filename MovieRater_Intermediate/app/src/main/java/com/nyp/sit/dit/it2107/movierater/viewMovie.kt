@@ -8,6 +8,7 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.rate_movie.*
 import kotlinx.android.synthetic.main.view_movie.*
 
 class viewMovie: AppCompatActivity() {
@@ -35,13 +36,17 @@ class viewMovie: AppCompatActivity() {
         m18TextView.text = suitable
 
         //Check if there is any review
-        if (movieObject.review == -1)
+        if (movieObject.review == -1.0)
         {
+            reviewTextView.visibility = View.VISIBLE
             reviewTextView.text = "No Review Yet." + "\n" + "Long press here too add your review"
         }
-        else
+        if (movieObject.review != -1.0)
         {
-            reviewTextView.text = movieObject.review.toString()
+            reviewTextView.visibility = View.VISIBLE
+            reviewTextView.text = movieObject.reviewText
+            ratingBar.visibility = View.VISIBLE
+            ratingBar.rating = movieObject.review.toFloat()
         }
     }
 

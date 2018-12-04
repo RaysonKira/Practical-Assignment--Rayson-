@@ -16,9 +16,6 @@ class rateMovie : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.rate_movie)
-
-        var reviewStars = rateBar.numStars
-        movieObject.review = reviewStars
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -29,6 +26,10 @@ class rateMovie : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         if (item?.itemId == R.id.miSave)
         {
+            var reviewStars = rateBar.rating
+            movieObject.review = reviewStars.toDouble()
+            var reviewText = shareViewEditText.text
+            movieObject.reviewText = reviewText.toString()
             var intentView = Intent(this, viewMovie::class.java)
             startActivity(intentView)
         }

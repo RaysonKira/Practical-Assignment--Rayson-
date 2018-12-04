@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MovieRater</string>
+    <string name="releaseDate">Enter Release Date</string>
+    <string name="editName">Enter the name of the movie</string>
+    <string name="description">Enter a short description of the movie</string>
+    <string name="words">  You have not added a movie \nLong Press me to add a movie</string>
+</resources>
