@@ -16,9 +16,27 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".rateMovie"></activity>
-        <activity android:name=".viewMovie"></activity>
-        <activity android:name=".MainActivity"></activity>
+        <activity
+                android:name=".rateMovie"
+                android:parentActivityName=".viewMovie">
+        <meta-data android:name="android.support.PARENT_ACTIVITY"
+                   android:value=".viewMovie"/>
+        </activity>
+        <activity android:name=".viewMovie"
+                  android:parentActivityName=".noMovie">
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                       android:value=".noMovie"/>
+        </activity>
+        <activity android:name=".MainActivity"
+                  android:parentActivityName=".noMovie">
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                       android:value=".noMovie"/>
+        </activity>
+        <activity android:name=".editMovie"
+                  android:parentActivityName=".noMovie">
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                        android:value=".noMovie"/>
+        </activity>
     </application>
 
 </manifest>

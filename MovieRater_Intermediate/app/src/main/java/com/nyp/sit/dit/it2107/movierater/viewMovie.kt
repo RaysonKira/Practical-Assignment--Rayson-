@@ -4,6 +4,7 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.ContextMenu
+import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
@@ -64,5 +65,24 @@ class viewMovie: AppCompatActivity() {
             startActivity(intentView)
         }
         return super.onContextItemSelected(item)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.view,menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        if (item?.itemId == R.id.home)
+        {
+            super.onBackPressed()
+            return true
+        }
+
+        if (item?.itemId == R.id.mibuttonEdit) {
+            var intentView = Intent(this, editMovie::class.java)
+            startActivity(intentView)
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

@@ -14,13 +14,43 @@ import android.widget.EditText
 
 
 
-class MainActivity : AppCompatActivity() {
+class editMovie : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        editTextName.setText(movieObject.inputName)
+        editTextDate.setText(movieObject.releasedDate)
+        editTextDesc.setText(movieObject.inputDesc)
+        if (movieObject.radioButtonInput == "Malay")
+        {
+            radioButtonMalay.isChecked = true
+        }
+        if (movieObject.radioButtonInput == "Chinese")
+        {
+            radioButtonMalay.isChecked = true
+        }
+        if (movieObject.radioButtonInput == "English")
+        {
+            radioButtonMalay.isChecked = true
+        }
+        if (movieObject.radioButtonInput == "Tamil")
+        {
+            radioButtonMalay.isChecked = true
+        }
 
+        if (movieObject.checkedOrNt == "True")
+        {
+            checkBoxM18.isChecked = true
+            if (movieObject.violence == "Violence")
+            {
+                checkBoxViolence.isChecked = true
+            }
+            if (movieObject.language == "Language")
+            {
+                checkBoxLanguage.isChecked = true
+            }
+        }
         checkBoxM18.setOnClickListener(View.OnClickListener {
             if (checkBoxM18.isChecked) {
                 checkBoxLanguage.visibility = View.VISIBLE
@@ -36,7 +66,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.main,menu)
+        menuInflater.inflate(R.menu.edit,menu)
         return super.onCreateOptionsMenu(menu)
     }
 
@@ -46,7 +76,8 @@ class MainActivity : AppCompatActivity() {
             super.onBackPressed()
             return true
         }
-        if (item?.itemId == R.id.mibuttonAdd)
+
+        if (item?.itemId == R.id.mibuttonSave)
         {
             var radioButtonInput = ""
             var checkedOrNt = ""
@@ -130,18 +161,10 @@ class MainActivity : AppCompatActivity() {
             movieObject.violence = violence
             movieObject.language = language
         }
-        if (item?.itemId == R.id.miClear)
+        if (item?.itemId == R.id.miCancel)
         {
-            editTextName.setText("")
-            editTextDate.setText("")
-            editTextDesc.setText("")
-            checkBoxM18.isChecked = false
-            checkBoxLanguage.isChecked = false
-            checkBoxViolence.isChecked = false
-            radioButtonChinese.isChecked = false
-            radioButtonEng.isChecked = false
-            radioButtonMalay.isChecked = false
-            radioButtonTamil.isChecked = false
+            var intentView = Intent(this, viewMovie::class.java)
+            startActivity(intentView)
         }
         return super.onOptionsItemSelected(item)
     }

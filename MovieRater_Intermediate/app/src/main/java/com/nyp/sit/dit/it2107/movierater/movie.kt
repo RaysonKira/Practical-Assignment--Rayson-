@@ -27,4 +27,5 @@ class Movie (radioButtonInput: String, checkedOrNt: String, inputName: String, i
     }
 }
 
+
 var movieObject = Movie("", "", "","","", "","", -1.0, "")

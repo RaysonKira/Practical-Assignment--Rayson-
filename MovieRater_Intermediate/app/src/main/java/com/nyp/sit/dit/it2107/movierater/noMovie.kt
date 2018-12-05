@@ -16,7 +16,6 @@ class noMovie: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.no_movie)
         registerForContextMenu(words)
-
     }
     override fun onCreateContextMenu(menu: ContextMenu?, v: View?, menuInfo: ContextMenu.ContextMenuInfo?) {
         super.onCreateContextMenu(menu, v, menuInfo)

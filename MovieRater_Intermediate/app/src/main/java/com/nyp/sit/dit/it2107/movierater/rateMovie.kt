@@ -24,6 +24,12 @@ class rateMovie : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        if (item?.itemId == R.id.home)
+        {
+            super.onBackPressed()
+            return true
+        }
+
         if (item?.itemId == R.id.miSave)
         {
             var reviewStars = rateBar.rating
