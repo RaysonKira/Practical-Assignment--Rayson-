@@ -150,16 +150,21 @@ class editMovie : AppCompatActivity() {
                 var message:String = "Title: " + inputName + "\n" + "Overview: " + inputDesc + "\n" +"Released Date: " + releasedDate + "\n" +"Language: " + radioButtonInput + "\n" +"Suitable for all age: " + checkedOrNt + "\n" + "Reasons:" + "\n" + violence + "\n" + language
                 Toast.makeText(this, message, Toast.LENGTH_LONG).show()
 
+                val itemPos:Int = intent.getStringExtra("itemPosition").toInt()
+                val selectedItem = movieArray.get(itemPos)
+                selectedItem.inputName = inputName.toString()
+                selectedItem.releasedDate = releasedDate.toString()
+                selectedItem.inputDesc = releasedDate.toString()
+                selectedItem.checkedOrNt = checkedOrNt
+                selectedItem.language = language
+                selectedItem.radioButtonInput = radioButtonInput
+                selectedItem.violence = violence
+                selectedItem.reviewText = movieObject.reviewText
+                movieObject = Movie(radioButtonInput, checkedOrNt, inputName.toString(), inputDesc.toString(), releasedDate.toString(), violence, language, movieObject.review, movieObject.reviewText)
+
                 var intentView = Intent(this, viewMovie::class.java)
                 startActivity(intentView)
             }
-            movieObject.inputName= inputName.toString()
-            movieObject.releasedDate = releasedDate.toString()
-            movieObject.inputDesc = inputDesc.toString()
-            movieObject.checkedOrNt = checkedOrNt
-            movieObject.radioButtonInput = radioButtonInput
-            movieObject.violence = violence
-            movieObject.language = language
         }
         if (item?.itemId == R.id.miCancel)
         {

@@ -4,11 +4,14 @@
                 android:layout_height="match_parent"
                 xmlns:tools="http://schemas.android.com/tools"
                 tools:context=".noMovie">
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/words"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:text="@string/words"/>
+    <ListView
+            android:layout_width="match_parent"
+            android:id = "@+id/listViewMovie"
+            android:layout_height="match_parent" android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"/>
+
+    <ImageView
+            android:id="@+id/imgView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"/>
 </RelativeLayout>

@@ -1,6 +1,7 @@
 package com.nyp.sit.dit.it2107.movierater
 
 import org.intellij.lang.annotations.Language
+import java.util.*
 
 class Movie (radioButtonInput: String, checkedOrNt: String, inputName: String, inputDesc: String, releasedDate: String, violence:String, language: String, review: Double, reviewText: String)
 {
@@ -27,5 +28,6 @@ class Movie (radioButtonInput: String, checkedOrNt: String, inputName: String, i
     }
 }
 
-
 var movieObject = Movie("", "", "","","", "","", -1.0, "")
+
+var movieArray = mutableListOf<Movie>()

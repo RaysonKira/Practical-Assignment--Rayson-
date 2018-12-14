@@ -36,6 +36,14 @@ class rateMovie : AppCompatActivity() {
             movieObject.review = reviewStars.toDouble()
             var reviewText = shareViewEditText.text
             movieObject.reviewText = reviewText.toString()
+            for (i in movieArray)
+            {
+                if (i.inputName == movieObject.inputName)
+                {
+                    i.review = reviewStars.toDouble()
+                    i.reviewText = reviewText.toString()
+                }
+            }
             var intentView = Intent(this, viewMovie::class.java)
             startActivity(intentView)
         }
